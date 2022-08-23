@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,25 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <Compile Remove="Common\Entities\**" />
+    <EmbeddedResource Remove="Common\Entities\**" />
+    <None Remove="Common\Entities\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Entities\" />
-    <Folder Include="Products\Commands\" />
-    <Folder Include="Products\Dtos\" />
-    <Folder Include="Products\Handlers\Commands\" />
-    <Folder Include="Products\Handlers\Handlers\" />
-    <Folder Include="Products\Mappings\" />
-    <Folder Include="Products\Validators\" />
-    <Folder Include="Products\Queries\" />
-    <Folder Include="Users\Commands\" />
-    <Folder Include="Users\Dtos\" />
-    <Folder Include="Users\Handlers\Commands\" />
-    <Folder Include="Users\Handlers\Queries\" />
-    <Folder Include="Users\Mappings\" />
-    <Folder Include="Users\Validators\" />
-    <Folder Include="Users\Queries\" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +24,16 @@
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Products\Validators\" />
+    <Folder Include="Sellers\Validators\" />
+    <Folder Include="Users\" />
   </ItemGroup>
 
 </Project>
