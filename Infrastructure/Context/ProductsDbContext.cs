@@ -3,7 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Context
 {
-    public class ProductsDbContext : BaseDbContext
+    public interface IProductsDbContext : IDbContext
+    {
+
+    }
+    public class ProductsDbContext : BaseDbContext, IProductsDbContext
     {
         public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)
         {

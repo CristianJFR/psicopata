@@ -15,7 +15,6 @@ namespace Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidatorBehavior<,>));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
-
         }
     }
 }

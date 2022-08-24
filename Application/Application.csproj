@@ -31,8 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Products\Validators\" />
-    <Folder Include="Sellers\Validators\" />
     <Folder Include="Users\" />
   </ItemGroup>
 

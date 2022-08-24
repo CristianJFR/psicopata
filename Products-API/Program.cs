@@ -5,14 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ProductsDbContext>(options =>
-    options.UseSqlServer("Server=MALQUIEL-ASUS; Database=IntokuSkillsDb; Trusted_Connection=True;"));
+    options.UseSqlServer("Server=DESKTOP-T6BRJ6I\\SQLEXPRESS; Database=ProductsDB; Trusted_Connection=True;"));
 builder.Services.AddInfrastructure();
 builder.Services.AddApplication();
 builder.Services.AddCors(options =>
@@ -24,14 +22,12 @@ builder.Services.AddCors(options =>
                       .AllowAnyHeader()
                       .AllowAnyMethod()
                       .AllowCredentials();
-              //TODO: remove this line for production
               builder.SetIsOriginAllowed(x => true);
           });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
