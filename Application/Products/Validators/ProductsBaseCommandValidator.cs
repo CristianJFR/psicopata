@@ -1,4 +1,5 @@
-﻿using Application.Products.Commands;
+﻿using Application.Common.Enums;
+using Application.Products.Commands;
 using FluentValidation;
 
 namespace Application.Products.Validators
@@ -7,7 +8,15 @@ namespace Application.Products.Validators
     {
         public ProductsBaseCommandValidator()
         {
-            RuleFor(c => c.Name).NotEmpty().WithMessage("Product's 'Name' should not be empty");
+            RuleFor(p => p.Id)
+                .NotEmpty()
+                .WithMessage("The Product's 'Id' should not be empty")
+                .When(p => p.ActionType != ActionTypes.Create);
+
+            RuleFor(p => p.Name)
+                .NotEmpty()
+                .WithMessage("Product's 'Name' should not be empty")
+                .When(p => p.ActionType != ActionTypes.Delete);
         }
     }
 }

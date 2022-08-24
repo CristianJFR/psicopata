@@ -10,9 +10,5 @@ namespace Domain.Entities
         public int Quantity { get; set; }
         public double Price { get; set; }
         public string Image { get; set; }
-
-        [JsonIgnore]
-        public User User { get; set; }
-        public int UserId { get; set; }
     }
 }

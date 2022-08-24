@@ -26,12 +26,14 @@ namespace Infrastructure.Context
 
                         entry.Entity.Deleted = false;
                         entry.Entity.CreatedDate = DateTimeOffset.UtcNow;
+                        entry.Entity.CreatedBy = "DEFAULT USER";
                         break;
 
                     case EntityState.Modified:
                         entry.Property(x => x.CreatedDate).IsModified = false;
                         entry.Property(x => x.CreatedBy).IsModified = false;
                         entry.Entity.UpdatedDate = DateTimeOffset.UtcNow;
+                        entry.Entity.UpdatedBy = "DEFAULT USER";
                         break;
 
                     case EntityState.Deleted:
@@ -40,6 +42,7 @@ namespace Infrastructure.Context
                         entry.State = EntityState.Modified;
                         entry.Entity.Deleted = true;
                         entry.Entity.DeletedDate = DateTimeOffset.UtcNow;
+                        entry.Entity.DeletedBy = "DEFAULT USER";
                         break;
 
                     default:

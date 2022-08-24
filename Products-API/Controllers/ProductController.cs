@@ -15,7 +15,7 @@ namespace Products_API.Controllers
         protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
 
         [HttpGet]
-        public async Task<ActionResult<IQueryable<ProductDto>>> Get()
+        public async Task<ActionResult<List<ProductDto>>> Get()
         {
             try
             {
@@ -34,7 +34,7 @@ namespace Products_API.Controllers
         {
             try
             {
-                GetProductByIdQuery query = new();
+                GetProductByIdQuery query = new GetProductByIdQuery() { Id = id };
                 var queryResult = await Mediator.Send(query);
                 return Ok(queryResult);
             }

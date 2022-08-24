@@ -1,4 +1,5 @@
-﻿using Application.Sellers.Commands;
+﻿using Application.Common.Enums;
+using Application.Sellers.Commands;
 using FluentValidation;
 
 namespace Application.Sellers.Validators
@@ -7,7 +8,15 @@ namespace Application.Sellers.Validators
     {
         public SellerBaseCommandValidator()
         {
-            RuleFor(x => x.Name).NotEmpty().WithMessage("The Seller's 'Name' should not be empty");
+            RuleFor(s => s.Id)
+                .NotEmpty()
+                .WithMessage("The Seller's 'Id' should not be empty")
+                .When(s => s.ActionType != ActionTypes.Create);
+
+            RuleFor(s => s.Name)
+                .NotEmpty()
+                .WithMessage("The Seller's 'Name' should not be empty")
+                .When(s => s.ActionType != ActionTypes.Delete); ;
         }
     }
 }

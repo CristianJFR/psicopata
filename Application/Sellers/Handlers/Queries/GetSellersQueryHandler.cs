@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Application.Sellers.Handlers.Queries
 {
-    public class GetSellersQueryHandler : IRequestHandler<GetSellersQuery, IQueryable<SellerDto>>
+    public class GetSellersQueryHandler : IRequestHandler<GetSellersQuery, List<SellerDto>>
     {
         private readonly ISellerService _sellerService;
         private readonly IMapper _mapper;
@@ -16,9 +16,9 @@ namespace Application.Sellers.Handlers.Queries
             _sellerService = sellerService;
             _mapper = mapper;
         }
-        public async Task<IQueryable<SellerDto>> Handle(GetSellersQuery request, CancellationToken cancellationToken)
+        public async Task<List<SellerDto>> Handle(GetSellersQuery request, CancellationToken cancellationToken)
         {
-            return _mapper.Map<IQueryable<SellerDto>>(_sellerService.Query());
+            return _mapper.Map<List<SellerDto>>(_sellerService.Query().ToList());
         }
     }
 }

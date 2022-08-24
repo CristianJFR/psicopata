@@ -19,11 +19,12 @@ namespace Products_API.Controllers
             try
             {
                 command.ActionType = ActionTypes.Create;
-                return Ok(await Mediator.Send(command));
+                var result = await Mediator.Send(command);
+                return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest(new { Error = ex.Message });
+                return BadRequest(new { Error = ex.InnerException });
             }
         }
         [HttpPut]
@@ -44,9 +45,8 @@ namespace Products_API.Controllers
         {
             try
             {
-                var command = new TBaseCommand();
+                var command = new TBaseCommand() { Id = id};
                 command.ActionType = ActionTypes.Delete;
-                command.Id = id;
                 return Ok(await Mediator.Send(command));
             }
             catch (Exception ex)

@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Application.Products.Queries
 {
-    public class GetProductsQuery : IRequest<IQueryable<ProductDto>>
+    public class GetProductsQuery : IRequest<List<ProductDto>>
     {
     }
 }
