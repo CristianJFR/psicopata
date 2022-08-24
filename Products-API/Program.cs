@@ -10,7 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ProductsDbContext>(options =>
-    options.UseSqlServer("Server=DHIMASVICTUS; Database=ProductsDB; Trusted_Connection=True;"));
+    options.UseSqlServer("Server=db;Database=master;User=sa;Password=Testexec123;"
+));
 builder.Services.AddInfrastructure();
 builder.Services.AddApplication();
 builder.Services.AddCors(options =>
