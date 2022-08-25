@@ -1,7 +1,5 @@
 # Products-API
 
-# REQUIREMENTS 
-
 STEPS TO RUN THE API: 
 run the command "docker compose up" in the WorkDir of the project once cloned
 
