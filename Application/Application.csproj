@@ -8,8 +8,11 @@
 
   <ItemGroup>
     <Compile Remove="Common\Entities\**" />
+    <Compile Remove="Users\**" />
     <EmbeddedResource Remove="Common\Entities\**" />
+    <EmbeddedResource Remove="Users\**" />
     <None Remove="Common\Entities\**" />
+    <None Remove="Users\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,10 +31,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Users\" />
   </ItemGroup>
 
 </Project>
