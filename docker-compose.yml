@@ -1,11 +1,9 @@
 ﻿version: "3.4"
 services:
     api:
-        build:
-          context: .
-          dockerfile: Dockerfile
+        image: "dhimas12/products-proj:v1"
         ports:
-          - "8080:80"
+          - "5001:80"
         depends_on:
           - db
         environment: 
