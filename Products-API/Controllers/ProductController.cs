@@ -11,9 +11,6 @@ namespace Products_API.Controllers
     [Route("api/Skills/[controller]")]
     public class ProductController : BaseController<ProductBaseCommand, ProductDto>
     {
-        private IMediator _mediator;
-        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
-
         [HttpGet]
         public async Task<ActionResult<List<ProductDto>>> Get()
         {
